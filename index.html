@@ -16,14 +16,15 @@
         overflow: hidden;
         font-family: 'Open Sans', sans-serif;
         background-color: #FFFDF7;
+        height: 100vh;
       }
       .font-heading { font-family: 'Quicksand', sans-serif; }
       .font-script { font-family: 'Great Vibes', cursive; }
 
       @keyframes float-up {
         0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-        20% { opacity: 0.6; }
-        80% { opacity: 0.6; }
+        20% { opacity: 0.7; }
+        80% { opacity: 0.7; }
         100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
       }
       
@@ -34,18 +35,18 @@
 
       @keyframes steam {
         0% { transform: translateY(0) scale(1); opacity: 0; }
-        50% { transform: translateY(-30px) scale(1.5); opacity: 0.4; }
-        100% { transform: translateY(-60px) scale(2); opacity: 0; }
+        50% { transform: translateY(-40px) scale(1.8); opacity: 0.4; }
+        100% { transform: translateY(-80px) scale(2.5); opacity: 0; }
       }
 
-      @keyframes sun-ray {
+      @keyframes ray-rotation {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
       }
 
-      @keyframes sway {
-        0%, 100% { transform: rotate(-2deg); }
-        50% { transform: rotate(2deg); }
+      @keyframes gentle-sway {
+        0%, 100% { transform: rotate(-1.5deg); }
+        50% { transform: rotate(1.5deg); }
       }
 
       .animate-float-up {
@@ -62,28 +63,21 @@
       }
 
       .steam-puff {
-        animation: steam 4s ease-out infinite;
+        animation: steam 5s ease-out infinite;
       }
 
       .sun-rays-rotate {
-        animation: sun-ray 60s linear infinite;
+        animation: ray-rotation 60s linear infinite;
         transform-origin: center;
       }
 
       .sway-animation {
-        animation: sway 5s ease-in-out infinite;
+        animation: gentle-sway 6s ease-in-out infinite;
         transform-origin: bottom center;
       }
 
       .kolam-spin {
-        animation: sun-ray 120s linear infinite;
-      }
-
-      /* Desktop view optimization for 1:1 feel */
-      .canvas-container {
-        max-width: 1080px;
-        aspect-ratio: 1/1;
-        margin: auto;
+        animation: ray-rotation 120s linear infinite;
       }
 
       ::-webkit-scrollbar { display: none; }
@@ -100,5 +94,6 @@
   </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
