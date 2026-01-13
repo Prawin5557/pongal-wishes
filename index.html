@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Open+Sans:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
       body {
         margin: 0;
@@ -20,37 +20,36 @@
       .font-heading { font-family: 'Quicksand', sans-serif; }
       .font-script { font-family: 'Great Vibes', cursive; }
 
-      @keyframes float {
-        0% { transform: translateY(0px) rotate(0deg) translateX(0px); opacity: 0; }
-        15% { opacity: 0.4; }
-        50% { transform: translateY(-50vh) rotate(180deg) translateX(30px); opacity: 0.5; }
-        85% { opacity: 0.4; }
-        100% { transform: translateY(-110vh) rotate(360deg) translateX(-15px); opacity: 0; }
+      @keyframes float-up {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+        20% { opacity: 0.6; }
+        80% { opacity: 0.6; }
+        100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
       }
-      @keyframes sparkle {
-        0%, 100% { transform: scale(0); opacity: 0; }
-        50% { transform: scale(1); opacity: 0.8; }
-      }
+      
       @keyframes gold-shimmer {
         0% { background-position: -200% center; }
         100% { background-position: 200% center; }
       }
-      @keyframes ray-rotate {
+
+      @keyframes steam {
+        0% { transform: translateY(0) scale(1); opacity: 0; }
+        50% { transform: translateY(-30px) scale(1.5); opacity: 0.4; }
+        100% { transform: translateY(-60px) scale(2); opacity: 0; }
+      }
+
+      @keyframes sun-ray {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
       }
-      @keyframes steam-drift {
-        0% { transform: translateY(0) scale(1); opacity: 0; }
-        50% { transform: translateY(-30px) scale(1.8); opacity: 0.3; }
-        100% { transform: translateY(-60px) scale(2.2); opacity: 0; }
+
+      @keyframes sway {
+        0%, 100% { transform: rotate(-2deg); }
+        50% { transform: rotate(2deg); }
       }
-      @keyframes slow-sway {
-        0%, 100% { transform: rotate(-1deg); }
-        50% { transform: rotate(1deg); }
-      }
-      @keyframes pulse-soft {
-        0%, 100% { transform: scale(1); opacity: 0.8; }
-        50% { transform: scale(1.05); opacity: 1; }
+
+      .animate-float-up {
+        animation: float-up linear infinite;
       }
 
       .text-gold-shimmer {
@@ -61,19 +60,33 @@
         background-clip: text;
         animation: gold-shimmer 4s linear infinite;
       }
-      .flower { position: absolute; pointer-events: none; animation: float linear infinite; }
-      .sparkle { position: absolute; pointer-events: none; animation: sparkle 4s ease-in-out infinite; }
-      .sun-rays { animation: ray-rotate 50s linear infinite; transform-origin: center; }
-      .steam-puff { animation: steam-drift 4s ease-out infinite; }
-      .sway { animation: slow-sway 6s ease-in-out infinite; }
-      .kolam-spin { animation: ray-rotate 100s linear infinite; }
-      
-      /* Hide scrollbars */
-      ::-webkit-scrollbar { display: none; }
-      
-      .drop-shadow-gold {
-        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+
+      .steam-puff {
+        animation: steam 4s ease-out infinite;
       }
+
+      .sun-rays-rotate {
+        animation: sun-ray 60s linear infinite;
+        transform-origin: center;
+      }
+
+      .sway-animation {
+        animation: sway 5s ease-in-out infinite;
+        transform-origin: bottom center;
+      }
+
+      .kolam-spin {
+        animation: sun-ray 120s linear infinite;
+      }
+
+      /* Desktop view optimization for 1:1 feel */
+      .canvas-container {
+        max-width: 1080px;
+        aspect-ratio: 1/1;
+        margin: auto;
+      }
+
+      ::-webkit-scrollbar { display: none; }
     </style>
     <script type="importmap">
     {

@@ -7,21 +7,21 @@ import FloatingFlowers from './components/FloatingFlowers';
 const App: React.FC = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#FFFDF7] flex flex-col items-center justify-between py-10 md:py-20">
-      {/* Atmospheric Background Layer */}
+      {/* High-fidelity Atmosphere Layers */}
       <BackgroundDecor />
       
-      {/* Subtle Animated Particles */}
+      {/* Traditional Marigold Shower */}
       <FloatingFlowers />
       
-      {/* Main Content Area */}
-      <main className="z-10 w-full px-6 flex-grow flex flex-col items-center justify-center">
+      {/* Centered Square-Optimized Content */}
+      <main className="z-10 w-full px-6 flex-grow flex flex-col items-center justify-center max-w-[1080px]">
         <GreetingCard />
       </main>
       
-      {/* Refined Footer Greeting */}
-      <footer className="z-10 text-center px-4 mt-6 animate-[fadeIn_2s_ease-out_1s_both]">
-        <p className="text-[#6D4C41] font-bold text-base md:text-3xl tracking-[0.2em] opacity-80 drop-shadow-sm font-heading">
-          WITH WARM WISHES FROM <span className="text-amber-700">NIZHAL MEN'S PG</span>
+      {/* Footer Branding */}
+      <footer className="z-20 text-center px-4 mt-8 animate-[fadeIn_2.5s_ease-out_1.5s_both]">
+        <p className="text-[#6D4C41] font-bold text-base md:text-3xl tracking-[0.25em] opacity-80 drop-shadow-sm font-heading">
+          WITH WARM WISHES FROM <span className="text-amber-800">NIZHAL MEN'S PG</span>
         </p>
       </footer>
     </div>
