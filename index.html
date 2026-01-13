@@ -20,77 +20,60 @@
       .font-heading { font-family: 'Quicksand', sans-serif; }
       .font-script { font-family: 'Great Vibes', cursive; }
 
-      @keyframes marigold-float {
-        0% { transform: translateY(-10vh) rotate(0deg) translateX(0px); opacity: 0; }
-        10% { opacity: 0.8; }
-        90% { opacity: 0.8; }
-        100% { transform: translateY(110vh) rotate(720deg) translateX(40px); opacity: 0; }
+      @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg) translateX(0px); opacity: 0; }
+        15% { opacity: 0.4; }
+        50% { transform: translateY(-50vh) rotate(180deg) translateX(30px); opacity: 0.5; }
+        85% { opacity: 0.4; }
+        100% { transform: translateY(-110vh) rotate(360deg) translateX(-15px); opacity: 0; }
       }
-      
-      @keyframes gold-flow {
+      @keyframes sparkle {
+        0%, 100% { transform: scale(0); opacity: 0; }
+        50% { transform: scale(1); opacity: 0.8; }
+      }
+      @keyframes gold-shimmer {
         0% { background-position: -200% center; }
         100% { background-position: 200% center; }
       }
-      
-      @keyframes steam-rise {
-        0% { transform: translateY(0) scale(1); opacity: 0; }
-        50% { transform: translateY(-40px) scale(2); opacity: 0.4; }
-        100% { transform: translateY(-80px) scale(3); opacity: 0; }
+      @keyframes ray-rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
       }
-      
-      @keyframes sun-pulse {
-        0%, 100% { transform: scale(1); filter: brightness(1); }
-        50% { transform: scale(1.05); filter: brightness(1.2); }
+      @keyframes steam-drift {
+        0% { transform: translateY(0) scale(1); opacity: 0; }
+        50% { transform: translateY(-30px) scale(1.8); opacity: 0.3; }
+        100% { transform: translateY(-60px) scale(2.2); opacity: 0; }
+      }
+      @keyframes slow-sway {
+        0%, 100% { transform: rotate(-1deg); }
+        50% { transform: rotate(1deg); }
+      }
+      @keyframes pulse-soft {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.05); opacity: 1; }
       }
 
-      .text-liquid-gold {
-        background: linear-gradient(
-          to right, 
-          #bf953f, 
-          #fcf6ba, 
-          #b38728, 
-          #fbf5b7, 
-          #aa771c
-        );
+      .text-gold-shimmer {
+        background: linear-gradient(110deg, #A87B05 0%, #FFD700 25%, #FFF9C4 50%, #FFD700 75%, #A87B05 100%);
         background-size: 200% auto;
         color: transparent;
         -webkit-background-clip: text;
         background-clip: text;
-        animation: gold-flow 3s linear infinite;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        animation: gold-shimmer 4s linear infinite;
       }
-
-      .marigold {
-        position: absolute;
-        pointer-events: none;
-        animation: marigold-float linear infinite;
-      }
-
-      .steam-puff {
-        animation: steam-rise 5s ease-out infinite;
-      }
-
-      .sun-aura {
-        animation: sun-pulse 4s ease-in-out infinite;
-      }
-
-      .sway-gentle {
-        animation: sway-keyframes 6s ease-in-out infinite;
-      }
-
-      @keyframes sway-keyframes {
-        0%, 100% { transform: rotate(-1.5deg); }
-        50% { transform: rotate(1.5deg); }
-      }
-
-      /* Premium Shadow for Glass Effects */
-      .glass-card {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(4px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-
+      .flower { position: absolute; pointer-events: none; animation: float linear infinite; }
+      .sparkle { position: absolute; pointer-events: none; animation: sparkle 4s ease-in-out infinite; }
+      .sun-rays { animation: ray-rotate 50s linear infinite; transform-origin: center; }
+      .steam-puff { animation: steam-drift 4s ease-out infinite; }
+      .sway { animation: slow-sway 6s ease-in-out infinite; }
+      .kolam-spin { animation: ray-rotate 100s linear infinite; }
+      
+      /* Hide scrollbars */
       ::-webkit-scrollbar { display: none; }
+      
+      .drop-shadow-gold {
+        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+      }
     </style>
     <script type="importmap">
     {

@@ -3,57 +3,62 @@ import React, { useEffect, useState } from 'react';
 
 interface Particle {
   id: number;
-  type: 'marigold' | 'glitter';
+  type: 'flower' | 'sparkle';
   left: string;
   duration: string;
   delay: string;
   size: string;
   color: string;
-  rotation: string;
 }
 
 const FloatingFlowers: React.FC = () => {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    const newParticles: Particle[] = Array.from({ length: 45 }).map((_, i) => {
-      const type = i % 3 === 0 ? 'glitter' : 'marigold';
+    const festiveColors = [
+      '#FFECB3', // Soft Yellow
+      '#FFFFFF', // White
+      '#FFCCBC', // Soft Peach
+      '#F8BBD0', // Soft Pink
+      '#DCEDC8', // Soft Green
+      '#FFE082', // Amber Light
+    ];
+
+    const newParticles: Particle[] = Array.from({ length: 35 }).map((_, i) => {
+      const isSparkle = i % 5 === 0;
       return {
         id: i,
-        type,
+        type: isSparkle ? 'sparkle' : 'flower',
         left: `${Math.random() * 100}%`,
-        duration: `${10 + Math.random() * 20}s`,
-        delay: `-${Math.random() * 20}s`,
-        size: type === 'glitter' 
-          ? `${2 + Math.random() * 4}px` 
-          : `${15 + Math.random() * 25}px`,
-        color: type === 'glitter' 
-          ? '#FFD700' 
-          : (i % 2 === 0 ? '#FF8F00' : '#FFD600'), // Marigold Orange and Yellow
-        rotation: `${Math.random() * 360}deg`,
+        duration: `${15 + Math.random() * 25}s`,
+        delay: `-${Math.random() * 30}s`,
+        size: isSparkle 
+          ? `${3 + Math.random() * 5}px` 
+          : `${12 + Math.random() * 30}px`,
+        color: festiveColors[Math.floor(Math.random() * festiveColors.length)],
       };
     });
     setParticles(newParticles);
   }, []);
 
   return (
-    <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
       {particles.map(p => (
-        p.type === 'marigold' ? (
+        p.type === 'flower' ? (
           <div
             key={p.id}
-            className="marigold"
+            className="flower"
             style={{
               left: p.left,
-              top: '-50px',
+              bottom: '-50px',
               animationDuration: p.duration,
               animationDelay: p.delay,
               width: p.size,
               height: p.size,
             }}
           >
-            <svg viewBox="0 0 100 100" fill={p.color} className="opacity-70 drop-shadow-md">
-              <path d="M50 0 C60 30 100 40 100 50 C100 60 60 70 50 100 C40 70 0 60 0 50 C0 40 40 30 50 0" />
+            <svg viewBox="0 0 100 100" fill={p.color} className="opacity-[0.25] md:opacity-[0.4] drop-shadow-sm">
+              <path d="M50 0 Q60 25 85 15 Q75 40 100 50 Q75 60 85 85 Q60 75 50 100 Q40 75 15 85 Q25 60 0 50 Q25 40 15 15 Q40 25 50 0" />
             </svg>
           </div>
         ) : (
@@ -63,14 +68,14 @@ const FloatingFlowers: React.FC = () => {
             style={{
               left: p.left,
               top: `${Math.random() * 100}%`,
-              animationDuration: `${2 + Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 4}s`,
               animationDelay: p.delay,
               width: p.size,
               height: p.size,
               backgroundColor: p.color,
               borderRadius: '50%',
-              opacity: 0.6,
-              boxShadow: `0 0 10px ${p.color}`,
+              opacity: 0.3,
+              boxShadow: `0 0 6px ${p.color}`,
             }}
           />
         )
