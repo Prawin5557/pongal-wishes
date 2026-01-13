@@ -13,25 +13,50 @@
       body {
         margin: 0;
         padding: 0;
-        overflow: hidden; /* No scrolling required as per prompt */
+        overflow: hidden;
         font-family: 'Open Sans', sans-serif;
+        background-color: #FFF8E7;
       }
       .font-heading {
         font-family: 'Quicksand', sans-serif;
       }
       @keyframes float {
         0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
-        10% { opacity: 1; }
-        90% { opacity: 1; }
-        100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        10% { opacity: 0.8; }
+        90% { opacity: 0.8; }
+        100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+      }
+      @keyframes sparkle {
+        0%, 100% { transform: scale(0); opacity: 0; }
+        50% { transform: scale(1); opacity: 1; }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes logoPulse {
+        0% { transform: scale(1.05); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1.05); }
       }
       .flower {
         position: absolute;
         pointer-events: none;
         animation: float linear infinite;
       }
+      .sparkle {
+        position: absolute;
+        pointer-events: none;
+        animation: sparkle 2s ease-in-out infinite;
+      }
+      .animate-fade-in {
+        animation: fadeIn 1.5s ease-out forwards;
+      }
+      .hover-logo-pulse:hover {
+        animation: logoPulse 1.5s ease-in-out infinite;
+      }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@^19.2.3",
@@ -40,7 +65,7 @@
   }
 }
 </script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
   </body>
