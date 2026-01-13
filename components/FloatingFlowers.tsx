@@ -15,20 +15,34 @@ const FloatingFlowers: React.FC = () => {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    const newParticles: Particle[] = Array.from({ length: 30 }).map((_, i) => ({
-      id: i,
-      type: i % 3 === 0 ? 'sparkle' : 'flower',
-      left: `${Math.random() * 100}%`,
-      duration: `${12 + Math.random() * 18}s`,
-      delay: `-${Math.random() * 25}s`,
-      size: i % 3 === 0 ? `${5 + Math.random() * 10}px` : `${20 + Math.random() * 25}px`,
-      color: i % 2 === 0 ? '#F8D030' : i % 3 === 0 ? '#FFFFFF' : '#FFD700',
-    }));
+    const festiveColors = [
+      '#FFECB3', // Soft Yellow
+      '#FFFFFF', // White
+      '#FFCCBC', // Soft Peach
+      '#F8BBD0', // Soft Pink
+      '#DCEDC8', // Soft Green
+      '#FFE082', // Amber Light
+    ];
+
+    const newParticles: Particle[] = Array.from({ length: 35 }).map((_, i) => {
+      const isSparkle = i % 5 === 0;
+      return {
+        id: i,
+        type: isSparkle ? 'sparkle' : 'flower',
+        left: `${Math.random() * 100}%`,
+        duration: `${15 + Math.random() * 25}s`,
+        delay: `-${Math.random() * 30}s`,
+        size: isSparkle 
+          ? `${3 + Math.random() * 5}px` 
+          : `${12 + Math.random() * 30}px`,
+        color: festiveColors[Math.floor(Math.random() * festiveColors.length)],
+      };
+    });
     setParticles(newParticles);
   }, []);
 
   return (
-    <div className="absolute inset-0 pointer-events-none z-0">
+    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
       {particles.map(p => (
         p.type === 'flower' ? (
           <div
@@ -43,7 +57,7 @@ const FloatingFlowers: React.FC = () => {
               height: p.size,
             }}
           >
-            <svg viewBox="0 0 100 100" fill={p.color} className="opacity-70">
+            <svg viewBox="0 0 100 100" fill={p.color} className="opacity-[0.25] md:opacity-[0.4] drop-shadow-sm">
               <path d="M50 0 Q60 25 85 15 Q75 40 100 50 Q75 60 85 85 Q60 75 50 100 Q40 75 15 85 Q25 60 0 50 Q25 40 15 15 Q40 25 50 0" />
             </svg>
           </div>
@@ -54,13 +68,14 @@ const FloatingFlowers: React.FC = () => {
             style={{
               left: p.left,
               top: `${Math.random() * 100}%`,
-              animationDuration: `${2 + Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 4}s`,
               animationDelay: p.delay,
               width: p.size,
               height: p.size,
               backgroundColor: p.color,
               borderRadius: '50%',
-              boxShadow: `0 0 10px ${p.color}`,
+              opacity: 0.3,
+              boxShadow: `0 0 6px ${p.color}`,
             }}
           />
         )

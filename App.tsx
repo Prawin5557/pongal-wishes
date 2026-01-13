@@ -6,21 +6,21 @@ import FloatingFlowers from './components/FloatingFlowers';
 
 const App: React.FC = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#FFF8E7] flex flex-col items-center justify-center">
-      {/* Background patterns and illustrations */}
+    <div className="relative w-full h-screen overflow-hidden bg-[#FFF8E7] flex flex-col items-center justify-between py-6 md:py-12">
+      {/* Background Patterns */}
       <BackgroundDecor />
       
-      {/* Animated floating elements */}
+      {/* Subtle Floating Elements */}
       <FloatingFlowers />
       
-      {/* Main content area */}
-      <main className="z-10 w-full max-w-4xl px-4 flex flex-col items-center">
+      {/* Main Content Area */}
+      <main className="z-10 w-full max-w-5xl px-6 flex-grow flex flex-col items-center justify-center">
         <GreetingCard />
       </main>
       
-      {/* Decorative footer text */}
-      <footer className="absolute bottom-8 z-10 text-center px-4">
-        <p className="text-[#8B4513] font-semibold text-lg md:text-xl">
+      {/* Footer text with refined styling */}
+      <footer className="z-10 text-center px-4 mt-2">
+        <p className="text-[#5D4037] font-bold text-sm md:text-2xl tracking-wide opacity-80">
           With warm wishes from Nizhal Men's PG
         </p>
       </footer>
