@@ -8,107 +8,100 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Open+Sans:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
       body {
         margin: 0;
         padding: 0;
         overflow: hidden;
         font-family: 'Open Sans', sans-serif;
-        background-color: #FFF8E7;
+        background-color: #FFFDF7;
       }
-      .font-heading {
-        font-family: 'Quicksand', sans-serif;
+      .font-heading { font-family: 'Quicksand', sans-serif; }
+      .font-script { font-family: 'Great Vibes', cursive; }
+
+      @keyframes marigold-float {
+        0% { transform: translateY(-10vh) rotate(0deg) translateX(0px); opacity: 0; }
+        10% { opacity: 0.8; }
+        90% { opacity: 0.8; }
+        100% { transform: translateY(110vh) rotate(720deg) translateX(40px); opacity: 0; }
       }
-      @keyframes float {
-        0% { transform: translateY(0px) rotate(0deg) translateX(0px); opacity: 0; }
-        10% { opacity: 0.6; }
-        50% { transform: translateY(-50vh) rotate(180deg) translateX(20px); opacity: 0.7; }
-        90% { opacity: 0.6; }
-        100% { transform: translateY(-110vh) rotate(360deg) translateX(-10px); opacity: 0; }
-      }
-      @keyframes sparkle {
-        0%, 100% { transform: scale(0); opacity: 0; }
-        50% { transform: scale(1.2); opacity: 0.8; }
-      }
-      @keyframes fadeInDown {
-        from { opacity: 0; transform: translateY(-30px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      @keyframes shimmer {
+      
+      @keyframes gold-flow {
         0% { background-position: -200% center; }
         100% { background-position: 200% center; }
       }
-      @keyframes sway {
-        0%, 100% { transform: rotate(-1deg) translateY(4px); }
-        50% { transform: rotate(1.5deg) translateY(2px); }
-      }
-      @keyframes spin-slow {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      @keyframes steam {
+      
+      @keyframes steam-rise {
         0% { transform: translateY(0) scale(1); opacity: 0; }
-        50% { transform: translateY(-15px) scale(1.5); opacity: 0.5; }
-        100% { transform: translateY(-30px) scale(2); opacity: 0; }
+        50% { transform: translateY(-40px) scale(2); opacity: 0.4; }
+        100% { transform: translateY(-80px) scale(3); opacity: 0; }
       }
-      .flower {
-        position: absolute;
-        pointer-events: none;
-        animation: float linear infinite;
+      
+      @keyframes sun-pulse {
+        0%, 100% { transform: scale(1); filter: brightness(1); }
+        50% { transform: scale(1.05); filter: brightness(1.2); }
       }
-      .sparkle {
-        position: absolute;
-        pointer-events: none;
-        animation: sparkle 2.5s ease-in-out infinite;
-      }
-      .animate-fade-in-down {
-        animation: fadeInDown 1.5s ease-out forwards;
-      }
-      .animate-fade-in-up {
-        animation: fadeInUp 1.5s ease-out forwards;
-      }
-      .text-shimmer {
-        background: linear-gradient(90deg, #2E7D32 0%, #4C9A2A 25%, #FFF176 50%, #4C9A2A 75%, #2E7D32 100%);
+
+      .text-liquid-gold {
+        background: linear-gradient(
+          to right, 
+          #bf953f, 
+          #fcf6ba, 
+          #b38728, 
+          #fbf5b7, 
+          #aa771c
+        );
         background-size: 200% auto;
         color: transparent;
         -webkit-background-clip: text;
         background-clip: text;
-        animation: shimmer 4s linear infinite;
+        animation: gold-flow 3s linear infinite;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
       }
-      .sway-animation {
-        animation: sway 5s ease-in-out infinite;
+
+      .marigold {
+        position: absolute;
+        pointer-events: none;
+        animation: marigold-float linear infinite;
       }
-      .kolam-spin {
-        animation: spin-slow 60s linear infinite;
-      }
+
       .steam-puff {
-        animation: steam 3s ease-out infinite;
+        animation: steam-rise 5s ease-out infinite;
       }
-      .hover-logo-pulse:hover {
-        animation: logoPulse 1.5s ease-in-out infinite;
-        cursor: pointer;
+
+      .sun-aura {
+        animation: sun-pulse 4s ease-in-out infinite;
       }
-      @keyframes logoPulse {
-        0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255, 215, 0, 0)); }
-        50% { transform: scale(1.08); filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5)); }
-        100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255, 215, 0, 0)); }
+
+      .sway-gentle {
+        animation: sway-keyframes 6s ease-in-out infinite;
       }
+
+      @keyframes sway-keyframes {
+        0%, 100% { transform: rotate(-1.5deg); }
+        50% { transform: rotate(1.5deg); }
+      }
+
+      /* Premium Shadow for Glass Effects */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      ::-webkit-scrollbar { display: none; }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
-  }
-}
-</script>
-</head>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/"
+      }
+    }
+    </script>
+  </head>
   <body>
     <div id="root"></div>
   </body>

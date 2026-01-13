@@ -6,22 +6,22 @@ import FloatingFlowers from './components/FloatingFlowers';
 
 const App: React.FC = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#FFF8E7] flex flex-col items-center justify-between py-6 md:py-12">
-      {/* Background Patterns */}
+    <div className="relative w-full h-screen overflow-hidden bg-[#FFFDF7] flex flex-col items-center justify-between py-12 md:py-24">
+      {/* High Fidelity Atmosphere */}
       <BackgroundDecor />
       
-      {/* Subtle Floating Elements */}
+      {/* Festive Marigold and Gold Shower */}
       <FloatingFlowers />
       
-      {/* Main Content Area */}
-      <main className="z-10 w-full max-w-5xl px-6 flex-grow flex flex-col items-center justify-center">
+      {/* Main Premium Card */}
+      <main className="z-20 w-full px-6 flex-grow flex flex-col items-center justify-center">
         <GreetingCard />
       </main>
       
-      {/* Footer text with refined styling */}
-      <footer className="z-10 text-center px-4 mt-2">
-        <p className="text-[#5D4037] font-bold text-sm md:text-2xl tracking-wide opacity-80">
-          With warm wishes from Nizhal Men's PG
+      {/* Majestic Footer */}
+      <footer className="z-20 text-center px-4 mt-8 animate-[fadeIn_2.5s_ease-out_1.5s_both]">
+        <p className="text-[#5D4037] font-black text-xl md:text-5xl tracking-[0.25em] drop-shadow-lg font-heading">
+          WITH WARM WISHES FROM <span className="text-amber-800">NIZHAL MEN'S PG</span>
         </p>
       </footer>
     </div>
